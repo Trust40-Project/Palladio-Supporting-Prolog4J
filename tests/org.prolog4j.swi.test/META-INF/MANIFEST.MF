@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Prolog4J SWI Tests
+Bundle-SymbolicName: org.prolog4j.swi.test
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: org.prolog4j.swi;bundle-version="1.0.0"
+Automatic-Module-Name: org.prolog4j.swi.test
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.prolog4j.test;bundle-version="1.0.0"
