@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tuprolog2
+Bundle-Name: Prolog4J TuProlog
 Bundle-SymbolicName: org.prolog4j.tuprolog
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.prolog4j.tuprolog2
@@ -13,3 +13,4 @@ Bundle-ClassPath: .,
  lib/tuprolog-3.3.0.jar,
  lib/commons-lang3-3.0.jar,
  lib/gson-2.6.2.jar
+Bundle-Vendor: Palladio Simulator

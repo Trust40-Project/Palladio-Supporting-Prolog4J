@@ -7,3 +7,4 @@ Fragment-Host: org.prolog4j.tuprolog;bundle-version="1.0.0"
 Automatic-Module-Name: org.prolog4j.tuprolog2.test
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.prolog4j.test;bundle-version="1.0.0"
+Bundle-Vendor: Palladio Simulator
