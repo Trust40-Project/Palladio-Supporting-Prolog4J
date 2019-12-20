@@ -26,17 +26,13 @@ package org.prolog4j.swi.test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.prolog4j.swi.SWIPrologProverFactory;
 import org.prolog4j.test.ProverTest;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.jpl7.JPL;
 
 import swiprolog.SwiInstaller;
 
@@ -45,6 +41,8 @@ import swiprolog.SwiInstaller;
  */
 public class SWIPrologProverTest extends ProverTest {
 
+	protected static File tmpDir;
+	
 	@Override
 	@Test
 	public void testInvalidQuery2() {
@@ -53,29 +51,22 @@ public class SWIPrologProverTest extends ProverTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
-		Path tmpPath = Files.createTempDirectory("swiprolog");
-		File tmpDir = tmpPath.toFile();
+		initSwiPrologStandalone();
+		p = new SWIPrologProverFactory().createProver();
+		setup();
+	}
+
+	private static void initSwiPrologStandalone() throws IOException {
+		tmpDir = Files.createTempDirectory(SWIPrologProverTest.class.getName()).toFile();
 		FileUtils.forceDeleteOnExit(tmpDir);
 		tmpDir.delete();
-		
-		SwiInstaller.overrideDirectory(tmpPath.toFile().getAbsolutePath());
-		SwiInstaller.unzipSWI(false);
-		
-		String folderName = Arrays.asList(tmpDir.list()).iterator().next();
-		File jplDir = new File(tmpDir, folderName);
-
-		JPL.setNativeLibraryDir(jplDir.getAbsolutePath());
-		JPL.loadNativeLibrary();
-		JPL.init();
-		
-		p = new SWIPrologProverFactory().createProver();
-		
-		setup();
+		SwiInstaller.overrideDirectory(tmpDir.getAbsolutePath());
+		SwiInstaller.init();
 	}
 	
 	@AfterClass
-	public static void destoryBeforeClass() {
-		
+	public static void tearDownAfterClass() throws IOException {
+		FileUtils.deleteDirectory(tmpDir);
 	}
 
 }

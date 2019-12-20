@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: prolog4j-swi
+Bundle-Name: Prolog4J SWI Prolog
 Bundle-SymbolicName: org.prolog4j.swi
 Bundle-Version: 1.0.0.qualifier
 Export-Package: org.prolog4j.swi
@@ -12,3 +12,4 @@ Bundle-ClassPath: .,
  lib/jpl-7.4.0.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.prolog4j.swi
+Bundle-Vendor: Palladio Simulator

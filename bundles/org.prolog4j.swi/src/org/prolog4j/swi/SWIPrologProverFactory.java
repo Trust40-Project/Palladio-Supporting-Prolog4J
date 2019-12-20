@@ -23,10 +23,6 @@
  */
 package org.prolog4j.swi;
 
-import java.io.File;
-import java.util.StringTokenizer;
-
-import org.jpl7.JPL;
 import org.osgi.service.component.annotations.Component;
 import org.prolog4j.ConversionPolicy;
 import org.prolog4j.IProverFactory;
@@ -39,25 +35,6 @@ import org.prolog4j.Prover;
  */
 @Component(immediate = true, property = { "id=org.prolog4j.swi.proverfactory", "name=SWI Prolog Interpreter", "needsNativeExecutables=true"})
 public final class SWIPrologProverFactory implements IProverFactory {
-
-	static {
-		// This is a workaround. If I run the test from Maven, then it won't find
-		// the JPL library, although running the JUnit test directly succeeds.
-//		String libraryPath = System.getProperty("java.library.path");
-//		StringTokenizer st = new StringTokenizer(libraryPath, File.pathSeparator);
-//		while (st.hasMoreTokens()) {
-//			try {
-//				String tok = st.nextToken();
-//				JPL.setNativeLibraryDir(tok);
-//				JPL.loadNativeLibrary();
-//				JPL.init();
-//				break;
-//			}
-//			catch (UnsatisfiedLinkError e) {
-//				continue;
-//			}
-//		}
-	}
 
 	@Override
 	public ConversionPolicy createConversionPolicy() {

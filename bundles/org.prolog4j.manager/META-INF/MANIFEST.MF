@@ -14,3 +14,4 @@ Bundle-Activator: org.prolog4j.manager.impl.Activator
 Service-Component: OSGI-INF/org.prolog4j.manager.impl.ProverManager.xml
 Bundle-ClassPath: lib/commons-collections4-4.4.jar,
  .
+Bundle-Vendor: Palladio Simulator
