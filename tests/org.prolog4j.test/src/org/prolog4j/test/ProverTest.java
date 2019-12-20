@@ -57,7 +57,7 @@ public abstract class ProverTest {
 	protected static Prover p;
 	
 	@BeforeClass
-	public static void setUpBeforeClass() {
+	public static void setUpBeforeClass() throws Exception {
 		// Call setup() from sub classes in BeforeClass annotated method
 	}
 	

@@ -23,10 +23,22 @@
  */
 package org.prolog4j.swi.test;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.prolog4j.swi.SWIPrologProverFactory;
 import org.prolog4j.test.ProverTest;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.jpl7.JPL;
+
+import swiprolog.SwiInstaller;
 
 /**
  * JUnit test for the SWI-Prolog binding. Inherits the common test class.
@@ -40,10 +52,30 @@ public class SWIPrologProverTest extends ProverTest {
 	}
 	
 	@BeforeClass
-	public static void setUpBeforeClass() {
+	public static void setUpBeforeClass() throws IOException {
+		Path tmpPath = Files.createTempDirectory("swiprolog");
+		File tmpDir = tmpPath.toFile();
+		FileUtils.forceDeleteOnExit(tmpDir);
+		tmpDir.delete();
+		
+		SwiInstaller.overrideDirectory(tmpPath.toFile().getAbsolutePath());
+		SwiInstaller.unzipSWI(false);
+		
+		String folderName = Arrays.asList(tmpDir.list()).iterator().next();
+		File jplDir = new File(tmpDir, folderName);
+
+		JPL.setNativeLibraryDir(jplDir.getAbsolutePath());
+		JPL.loadNativeLibrary();
+		JPL.init();
+		
 		p = new SWIPrologProverFactory().createProver();
 		
 		setup();
+	}
+	
+	@AfterClass
+	public static void destoryBeforeClass() {
+		
 	}
 
 }

@@ -43,20 +43,20 @@ public final class SWIPrologProverFactory implements IProverFactory {
 	static {
 		// This is a workaround. If I run the test from Maven, then it won't find
 		// the JPL library, although running the JUnit test directly succeeds.
-		String libraryPath = System.getProperty("java.library.path");
-		StringTokenizer st = new StringTokenizer(libraryPath, File.pathSeparator);
-		while (st.hasMoreTokens()) {
-			try {
-				String tok = st.nextToken();
-				JPL.setNativeLibraryDir(tok);
-				JPL.loadNativeLibrary();
-				JPL.init();
-				break;
-			}
-			catch (UnsatisfiedLinkError e) {
-				continue;
-			}
-		}
+//		String libraryPath = System.getProperty("java.library.path");
+//		StringTokenizer st = new StringTokenizer(libraryPath, File.pathSeparator);
+//		while (st.hasMoreTokens()) {
+//			try {
+//				String tok = st.nextToken();
+//				JPL.setNativeLibraryDir(tok);
+//				JPL.loadNativeLibrary();
+//				JPL.init();
+//				break;
+//			}
+//			catch (UnsatisfiedLinkError e) {
+//				continue;
+//			}
+//		}
 	}
 
 	@Override
