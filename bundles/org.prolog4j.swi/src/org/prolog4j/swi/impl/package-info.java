@@ -24,4 +24,4 @@
 /**
  * This package contains the SWI-Prolog implementation of the Prolog4J API.
  */
-package org.prolog4j.swi;
+package org.prolog4j.swi.impl;

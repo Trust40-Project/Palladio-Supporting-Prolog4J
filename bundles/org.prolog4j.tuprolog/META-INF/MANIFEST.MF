@@ -14,3 +14,4 @@ Bundle-ClassPath: .,
  lib/commons-lang3-3.0.jar,
  lib/gson-2.6.2.jar
 Bundle-Vendor: Palladio Simulator
+Export-Package: org.prolog4j.tuprolog

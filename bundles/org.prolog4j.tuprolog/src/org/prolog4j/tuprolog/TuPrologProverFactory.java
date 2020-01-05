@@ -27,6 +27,8 @@ import org.osgi.service.component.annotations.Component;
 import org.prolog4j.ConversionPolicy;
 import org.prolog4j.IProverFactory;
 import org.prolog4j.Prover;
+import org.prolog4j.tuprolog.impl.TuPrologConversionPolicy;
+import org.prolog4j.tuprolog.impl.TuPrologProver;
 
 /**
  * An implementation of {@link IProverFactory} which always returns

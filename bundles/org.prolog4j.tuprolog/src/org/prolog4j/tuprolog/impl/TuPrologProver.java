@@ -21,7 +21,7 @@
  * OF CONTRACT, TORT OR OTHERWISE,  ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package org.prolog4j.tuprolog;
+package org.prolog4j.tuprolog.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,7 +53,7 @@ public class TuPrologProver extends AbstractProver {
 	/**
 	 * Creates a tuProlog prover.
 	 */
-	TuPrologProver(ConversionPolicy conversionPolicy) {
+	public TuPrologProver(ConversionPolicy conversionPolicy) {
 		super(conversionPolicy);
 		engine = new Prolog();
 	}

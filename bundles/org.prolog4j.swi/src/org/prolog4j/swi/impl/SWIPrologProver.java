@@ -21,7 +21,53 @@
  * OF CONTRACT, TORT OR OTHERWISE,  ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+package org.prolog4j.swi.impl;
+
+import org.prolog4j.AbstractProver;
+import org.prolog4j.ConversionPolicy;
+import org.prolog4j.Query;
+
 /**
- * This package contains the tuProlog implementation of the Prolog4J API.
+ * Represents a Prolog knowledge base and provides methods for solving queries
+ * on it. The prover itself is not responsible for processing the solutions.
  */
-package org.prolog4j.tuprolog;
+public class SWIPrologProver extends AbstractProver {
+
+	/** Class version for serialization. */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Creates an SWI-Prolog prover.
+	 */
+	public SWIPrologProver(ConversionPolicy conversionPolicy) {
+		super(conversionPolicy);
+	}
+
+	@Override
+	public Query query(String goal) {
+		return new SWIPrologQuery(this, goal);
+	}
+
+	@Override
+	public void loadLibrary(String className) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void loadTheory(String filename) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void addTheory(String theory) {
+		org.jpl7.Query query = new org.jpl7.Query("assertz", new org.jpl7.Term[]{org.jpl7.Util.textToTerm(theory)});
+		query.hasSolution();
+	}
+
+	@Override
+	public void addTheory(String... theory) {
+		for (String clause: theory) {
+			addTheory(clause);
+		}
+	}
+
+}

@@ -21,7 +21,7 @@
  * OF CONTRACT, TORT OR OTHERWISE,  ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package org.prolog4j.swi;
+package org.prolog4j.swi.impl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
